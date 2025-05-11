@@ -4,7 +4,7 @@ export const TaskEntryForm = ({ setnewTaskText, addTask, newTaskText }) => {
   return (
     <div>
       <form htmlFor="todo-form" onSubmit={(e) => e.preventDefault()}>
-        <h1>Basic To-Do List</h1>
+        <h1>To-Do List</h1>
         <input
           type="text"
           id="todo-input"

@@ -1,5 +1,4 @@
 import React from "react";
-import { useEffect, useRef } from "react";
 import { TaskListItem } from "./TaskListItem";
 
 export const TaskDisplay = ({
@@ -8,14 +7,7 @@ export const TaskDisplay = ({
   toggleEditTask,
   editTask,
 }) => {
-  const inputRef = useRef(null);
-
-  useEffect(() => {
-    if (inputRef.current) {
-      inputRef.current.focus();
-    }
-  }, [tasks]);
-
+  const taskActions = { deleteTask, toggleEditTask, editTask };
   return (
     <div>
       <ul id="todo-list">
@@ -23,10 +15,8 @@ export const TaskDisplay = ({
           <TaskListItem
             key={task.id}
             task={task}
-            deleteTask={deleteTask}
-            toggleEditTask={toggleEditTask}
-            editTask={editTask}
-            inputRef={inputRef}
+            tasks={tasks}
+            taskActions={taskActions}
           />
         ))}
       </ul>

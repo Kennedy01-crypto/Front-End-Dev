@@ -1,13 +1,20 @@
 import React from "react";
 import { SquarePen, Trash, Check } from "lucide-react";
+import { useEffect, useRef } from "react";
 
 export const TaskListItem = ({
+  tasks,
   task,
-  deleteTask,
-  toggleEditTask,
-  editTask,
-  inputRef,
+  taskActions: { deleteTask, toggleEditTask, editTask },
 }) => {
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [tasks]);
+
   return (
     <div>
       <li key={task.id} className="task-item">
