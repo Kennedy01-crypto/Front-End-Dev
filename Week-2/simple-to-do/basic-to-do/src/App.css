@@ -56,6 +56,23 @@
     animation: logo-spin infinite 20s linear;
   }
 }
+.task-edit-input {
+  width: 100%; /* Make the input take the full width of the task item */
+  padding: 8px; /* Add some padding for better usability */
+  font-size: 16px; /* Match the font size with the task text */
+  border: 2px solid #4caf50; /* Highlight the input with a green border */
+  border-radius: 4px; /* Add rounded corners */
+  background-color: #000000; /* Light background for better contrast */
+  color: #fff; /* Dark text color for readability */
+  outline: none; /* Remove the default outline */
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transition for focus effects */
+}
+
+.task-edit-input:focus {
+  border-color: #2196f3; /* Change border color to blue on focus */
+  box-shadow: 0 0 6px rgba(33, 150, 243, 0.5); /* Add a blue glow on focus */
+}
 
 .card {
   padding: 2em;
@@ -63,4 +80,44 @@
 
 .read-the-docs {
   color: #888;
+}
+
+/* New styles moved from inline styles in App.jsx */
+.task-item {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.icon-check {
+  color: #4caf50;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.icon-check:hover {
+  color: #388e3c;
+  size: 18px;
+}
+
+.task-text {
+  flex: 1;
+}
+
+.icon-edit {
+  cursor: pointer;
+  margin-left: 8px;
+  transition: color 0.3s;
+}
+
+.icon-edit:hover {
+  color: green;
+}
+
+.icon-delete {
+  cursor: pointer;
+  margin-left: 4px;
+  transition: color 0.3s;
+}
+
+.icon-delete:hover {
+  color: red;
 }
