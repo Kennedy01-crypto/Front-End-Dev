@@ -1,12 +1,12 @@
-import { useCallback, useState, useEffect, useRef } from "react";
+import { useCallback, useState, useEffect } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
+import { TaskEntryForm } from "./TaskEntryForm";
 import "./App.css";
-import { SquarePen, Trash, Check } from "lucide-react";
+import { TaskDisplay } from "./TaskDisplay";
 
 function App() {
   const [newTaskText, setnewTaskText] = useState("");
-  const inputRef = useRef(null);
 
   const [tasks, setTasks] = useState(() => {
     // load tasks from localstorage or use default tasks
@@ -23,12 +23,6 @@ function App() {
   // save tasks to localstorage whenever tasks change
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
-  }, [tasks]);
-
-  useEffect(() => {
-    if (inputRef.current) {
-      inputRef.current.focus();
-    }
   }, [tasks]);
 
   // Function to handle adding a new task
@@ -70,62 +64,17 @@ function App() {
   return (
     <>
       <div className="app">
-        <form htmlFor="todo-form" onSubmit={(e) => e.preventDefault()}>
-          <h1>Basic To-Do List</h1>
-          <input
-            type="text"
-            id="todo-input"
-            placeholder="Enter a new task"
-            value={newTaskText}
-            onChange={(e) => setnewTaskText(e.target.value)}
-          />
-          <button type="submit" onClick={addTask}>
-            Add Task
-          </button>
-        </form>
-        <ul id="todo-list">
-          {tasks.map((task) => (
-            <li key={task.id} className="task-item">
-              {task.isEditing ? (
-                <>
-                  <input
-                    type="text"
-                    defaultValue={task.text}
-                    onBlurCapture={(e) => editTask(task.id, e.target.value)}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter") {
-                        editTask(task.id, e.target.value);
-                      } else if (e.key === "Escape") {
-                        toggleEditTask(task.id);
-                      }
-                    }}
-                    autoFocus
-                    className="task-edit-input"
-                    ref={inputRef}
-                  />
-                  <Check
-                    size={16}
-                    className="icon-check"
-                    onClick={() => editTask(task.id, task.text)}
-                  />
-                </>
-              ) : (
-                <span className="task-text">{task.text}</span>
-              )}
-
-              <SquarePen
-                size={16}
-                className="icon-edit"
-                onClick={() => toggleEditTask(task.id)}
-              />
-              <Trash
-                size={16}
-                className="icon-delete"
-                onClick={() => deleteTask(task.id)}
-              />
-            </li>
-          ))}
-        </ul>
+        <TaskEntryForm
+          setnewTaskText={setnewTaskText}
+          addTask={addTask}
+          newTaskText={newTaskText}
+        />
+        <TaskDisplay
+          tasks={tasks}
+          deleteTask={deleteTask}
+          toggleEditTask={toggleEditTask}
+          editTask={editTask}
+        />
       </div>
     </>
   );
