@@ -6,7 +6,7 @@ const GetQuote = ({ getQuote, quote, author, loading, error }) => {
       <button
         onClick={getQuote}
         disabled={loading}
-        className="px-6 self-center sm:w-1/2 md:w-80 py-2 bg-blue-600 text-white rounded shadow hover:bg-blue-700 disabled:bg-blue-300 transition-colors duration-200 mb-6"
+        className="px-6 self-center sm:w-1/2 md:w-80 py-2 bg-blue-600 text-white rounded shadow hover:bg-blue-700 cursor-pointer disabled:bg-blue-300 transition-colors duration-200 mb-6"
       >
         Get Quote
       </button>
