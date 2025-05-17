@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import { ProfileCard } from "./ProfileCard";
+import ProfileCard from "./ProfileCard";
 import { Moon, Search } from "lucide-react";
 
 function App() {
@@ -94,30 +94,16 @@ function App() {
 
       {/* Github Profile Card */}
 
-      {error ? (
+      {isloading ? (
+        <div className="flex justify-center items-center h-screen">
+          <h1 className="text-emerald-600 text-2xl font-bold">Loading...</h1>
+        </div>
+      ) : error ? (
         <div className="flex justify-center items-center h-screen">
           <h1 className="text-2xl text-red-600 font-bold">{error}</h1>
         </div>
       ) : (
         <ProfileCard
-          user={user}
-          devusername={devusername}
-          avatar={avatar}
-          followers={followers}
-          following={following}
-          publicRepos={publicRepos}
-          bio={bio}
-          location={location}
-          url={url}
-          joinDate={joinDate}
-        />
-      )}
-      {isloading ? (
-        <div className="flex justify-center items-center h-screen">
-          <h1 className="text-emerald-600 text-2xl font-bold">Loading...</h1>
-        </div>
-      ) : (
-        <ProfileCard.jsx
           user={user}
           devusername={devusername}
           avatar={avatar}
