@@ -1,0 +1,4 @@
+@import "tailwindcss";
+:root {
+  @apply min-h-screen bg-gray-100 dark:bg-gray-300 flex justify-center items-center h-screen;
+}
