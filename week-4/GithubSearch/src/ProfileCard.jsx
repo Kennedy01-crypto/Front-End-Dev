@@ -24,13 +24,13 @@ const ProfileCard = ({
         className="rounded-full w-24 h-24 m-4 md:w-32 md:h-32 object-cover mx-auto md:mx-0"
       />
       <div className="flex flex-col p-4">
-        <div className="flex flex-col md:flex-row text-center  gap-3">
-          <div className=" sm:mr-auto">
+        <div className="flex flex-col md:flex-row text-center md:text-left  gap-3">
+          <div className=" ">
             <h1 className="text-3xl font-bold text-blue-950">{user}</h1>
             <h2 className="text-xl  text-blue-600">{devusername}</h2>
           </div>
-          <div className="md:ml-auto text-gray-900 font-semibold">
-            <h2>{joinDate}</h2>
+          <div className=" text-gray-900 font-semibold">
+            <h2>Joined on {joinDate}</h2>
           </div>
         </div>
         <div className="my-5">
@@ -55,7 +55,7 @@ const ProfileCard = ({
             <span className="text-blue-600 font-bold">{following}</span>
           </div>
         </div>
-        <div className="flex flex-col items-center sm:place-items-start gap-2">
+        <div className="flex flex-col items-center md:place-items-start gap-2">
           <div className="flex flex-row  gap-2">
             <MapPin size={19} />
             <span className="">{location || "Not Available!"}</span>
