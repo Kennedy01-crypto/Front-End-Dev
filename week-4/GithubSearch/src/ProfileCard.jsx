@@ -1,7 +1,7 @@
 import React from "react";
 import { MapPin, Link } from "lucide-react";
 
-export const ProfileCard = ({
+const ProfileCard = ({
   user,
   devusername,
   avatar,
@@ -16,7 +16,10 @@ export const ProfileCard = ({
   return (
     <div className="flex flex-col md:flex-row bg-gray-100 mt-4 mx-2 sm:mx-1 p-3 rounded-lg shadow-lg gap-3 ">
       <img
-        src={avatar}
+        src={
+          avatar ||
+          "https://ui-avatars.com/api/?name=Github+User&background=gray&color=fff"
+        }
         alt={`${user}'s avatar`}
         className="rounded-full w-24 h-24 m-4 md:w-32 md:h-32 object-cover mx-auto md:mx-0"
       />
@@ -73,3 +76,5 @@ export const ProfileCard = ({
     </div>
   );
 };
+
+export default ProfileCard;
