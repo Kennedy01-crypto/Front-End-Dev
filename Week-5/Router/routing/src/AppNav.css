@@ -1,0 +1,39 @@
+/* Styles for App.jsx navigation bar */
+
+nav {
+  background-color: #282c34;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin: 0;
+}
+
+nav ul li a {
+  color: #61dafb;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover {
+  background-color: #61dafb;
+  color: #282c34;
+}
+
+nav ul li a.active {
+  background-color: #21a1f1;
+  color: white;
+  font-weight: 700;
+}
