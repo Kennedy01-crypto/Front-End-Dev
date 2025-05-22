@@ -24,6 +24,7 @@ const Animals = () => {
         throw new Error("Failed to fetch animal data" + response.statusText);
       const data = await response.json();
       setAnimal(data[0] || null);
+      console.log(animal);
       if (!data[0]) setError("No animal found.");
     } catch (err) {
       setError(err.message);

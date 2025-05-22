@@ -23,12 +23,12 @@ const Contact = () => (
         <p>
           <span className="font-semibold text-green-800">Phone:</span>{" "}
           <a href="tel:+1234567890" className="text-blue-600 hover:underline">
-            +1 (234) 567-890
+            +254 745-288082
           </a>
         </p>
         <p>
           <span className="font-semibold text-green-800">Address:</span> <br />
-          123 Sanctuary Lane, Nature City, Country
+          123 Sanctuary Lane, Tatu City, Kenya
         </p>
       </div>
     </section>

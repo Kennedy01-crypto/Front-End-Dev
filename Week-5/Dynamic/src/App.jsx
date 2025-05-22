@@ -16,14 +16,14 @@ const App = () => {
     " px-4 py-2 rounded transition-colors duration-200 font-semibold text-gray-700 hover:bg-blue-100 hover:text-blue-700";
   return (
     <Router>
-      <div className="">
-        <nav className="flex flex-row justify-end gap-4 p-4 w-full bg-gray-100 shadow mb-6">
+      <div className="flex flex-col min-h-screen">
+        <nav className="flex flex-row justify-end gap-4 p-4 w-full bg-gray-200 shadow-lg mb-0">
           <NavLink
             to="/"
             end
             className={({ isActive }) =>
               isActive
-                ? `${navLinkClasses} bg-blue-500 text-white`
+                ? `${navLinkClasses} bg-green-600 text-white`
                 : navLinkClasses
             }
           >
@@ -34,7 +34,7 @@ const App = () => {
             end
             className={({ isActive }) =>
               isActive
-                ? `${navLinkClasses} bg-blue-500 text-white`
+                ? `${navLinkClasses} bg-green-600 text-white`
                 : navLinkClasses
             }
           >
@@ -45,7 +45,7 @@ const App = () => {
             end
             className={({ isActive }) =>
               isActive
-                ? `${navLinkClasses} bg-blue-500 text-white`
+                ? `${navLinkClasses} bg-green-600 text-white`
                 : navLinkClasses
             }
           >
@@ -56,14 +56,14 @@ const App = () => {
             end
             className={({ isActive }) =>
               isActive
-                ? `${navLinkClasses} bg-blue-500 text-white`
+                ? `${navLinkClasses} bg-green-600 text-white`
                 : navLinkClasses
             }
           >
             Animals
           </NavLink>
         </nav>
-        <div className="max-w-2xl mx-auto p-4 bg-white rounded shadow">
+        <div className="flex-1 p-4 bg-gray-100 rounded shadow">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
