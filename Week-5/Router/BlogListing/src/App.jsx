@@ -35,17 +35,6 @@ function App() {
           >
             Blogs
           </NavLink>
-          {/* <NavLink
-              to="/blogs/:userId"
-              end
-              className={({ isActive }) =>
-                isActive
-                  ? `${navClasses} bg-blue-400 text-blue-300`
-                  : navClasses
-              }
-            >
-              Users
-            </NavLink> */}
           <NavLink
             to="/blogs/:userId"
             className={() => {
