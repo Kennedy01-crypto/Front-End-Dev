@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
@@ -33,34 +33,73 @@ function App() {
     }
   };
 
+  function truncateWords(str, num) {
+    if (!str) return "";
+    const words = str.split(" ");
+    if (words.length <= num) return str;
+    return words.slice(0, num).join(" ") + " ...";
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
     <>
-      <button onClick={fetchData}>Fetch Data</button>
       {loading ? (
-        <li>Loading...</li>
+        <div className="flex items-center justify-center min-h-screen">
+          <p className="mx-auto text-green-800 font-semibold text-3xl">
+            Loading...
+          </p>
+        </div>
       ) : (
-        <ul>
+        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 py-5 px-3 bg-gray-300 gap-4">
           {apis.map((api, idx) => (
-            <li key={idx}>
-              <span>{api.emoji}</span>
-              <a href={api.source} target="_blank" rel="noopener noreferrer">
-                <strong>{api.title}</strong>:
-              </a>
-              <p>{api.description}</p>
+            <li
+              key={idx}
+              className="flex flex-col border-2 border-blue-400 rounded-xl shadow-lg hover:border-blue-600 m-5 p-5 bg-white transition-duration-200"
+            >
+              <div className="flex flex-row items-center justify-center gap-2 mb-2">
+                <span className="text-2xl">{api.emoji}</span>
+                <a
+                  href={api.source}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-900 hover:text-blue-600 font-semibold text-lg hover:text-xl transition-duration-200"
+                >
+                  {api.title}
+                </a>
+              </div>
+              {/* Description */}
+              <p className="text-center text-gray-700 mb-4 italic">
+                {truncateWords(api.description, 20)}
+              </p>
+              {/* Info Row */}
+              <div className="flex flex-col items-center lg:flex-row lg:justify-evenly text-sm text-gray-600 mb-3 mt-auto">
+                <p>
+                  <span className="font-bold text-green-800">
+                    Health: {api.health}
+                  </span>
+                </p>
+                <p>
+                  <span className="font-bold text-purple-800">
+                    Methods: {api.methods}
+                  </span>
+                </p>
+                <p>
+                  <span className="font-bold text-yellow-800">
+                    Popularity: {api.popularity}
+                  </span>
+                </p>
+              </div>
+              {/* Documentation Link */}
               <a
+                className="text-center text0blue-600 hover:text-blue-800 underline font-medium"
                 href={api.documentation}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Documentation Link
               </a>
-              <br />
-              <div>
-                <h2>Metrics:</h2>
-                <p>Health: {api.health}</p>
-                <p>Methods: {api.methods}</p>
-                <p>Popularity: {api.popularirty}</p>
-              </div>
             </li>
           ))}
         </ul>
