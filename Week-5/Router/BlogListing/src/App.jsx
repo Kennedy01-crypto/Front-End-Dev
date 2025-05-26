@@ -21,7 +21,7 @@ function App() {
             to="/"
             end
             className={({ isActive }) =>
-              isActive ? `${navClasses} bg-blue-400 text-blue-300` : navClasses
+              isActive ? `${navClasses} bg-blue-600 text-gray-900` : navClasses
             }
           >
             Home
@@ -30,7 +30,7 @@ function App() {
             to="/blogs"
             end
             className={({ isActive }) =>
-              isActive ? `${navClasses} bg-blue-400 text-blue-300` : navClasses
+              isActive ? `${navClasses} bg-blue-600 text-gray-900` : navClasses
             }
           >
             Blogs
@@ -43,7 +43,7 @@ function App() {
                 location.pathname
               );
               return matchUser
-                ? `${navClasses} bg-blue-400 text-blue-300`
+                ? `${navClasses} bg-blue-600 text-gray-900`
                 : navClasses;
             }}
           >
