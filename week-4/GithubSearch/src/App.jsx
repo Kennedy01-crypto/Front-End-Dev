@@ -35,7 +35,7 @@ function App() {
     try {
       const response = await fetch(`https://api.github.com/users/${username}`);
       if (!response.ok) {
-        throw new Error("Network Response was not ok. User not found!");
+        throw new Error("User not found!");
       }
       const data = await response.json();
       console.log(data);
@@ -75,13 +75,13 @@ function App() {
     <div
       className={`${
         theme === "dark" ? "dark" : ""
-      } min-h-screen w-screen flex flex-col bg-gray-300 dark:bg-gray-800/100`}
+      } min-h-screen w-full flex flex-col items-center justify-center bg-gray-300 dark:bg-gray-800/100`}
     >
       <div
         className="
-          flex-1 mx-auto px-4 sm:px-6 lg:px-8 "
+          flex-1 sm:mx-auto  px-4 sm:px-6 lg:px-8  "
       >
-        <div className="flex flex-row justify-between p-3 text-xl sm:text-2xl text-blue-950 dark:text-blue-400">
+        <div className="flex flex-row justify-between items-center w-full max-w-md mx-auto xs:text-lg p-3 px-2 text-xl sm:text-2xl text-blue-950 dark:text-blue-400">
           <h1 className="font-bold ">devfinder Clone</h1>
           {/* darkmode and lightmode functionality */}
           <button
@@ -101,20 +101,20 @@ function App() {
           </button>
         </div>
         <form
-          className="flex flex-row items-center bg-gray-100 dark:bg-gray-900 mx-2 sm:m-1 p-5 sm:p-3 rounded-lg shadow-lg gap-3"
+          className="flex flex-row items-center bg-gray-100 dark:bg-gray-900 sm:m-1 p-4 max-xs:p-2 sm:p-3 rounded-lg shadow-lg gap-3 md:gap-5 max-xs:gap-1"
           onSubmit={onSubmit}
         >
           <Search className="text-blue-950 dark:text-blue-400" />
           <input
             type="text"
-            placeholder="Search Github username..."
-            className="flex-1 text-base outline-none placeholder:text-gray-700 caret-black dark:caret-blue-700 text-black dark:text-white dark:placeholder:text-gray-300 bg-transparent"
+            placeholder="Enter Github username..."
+            className="flex-1 text-base outline-none placeholder:text-gray-700 caret-black dark:caret-blue-700 text-black dark:text-white dark:placeholder:text-gray-300 bg-transparent max-xs:text-sm"
             value={username}
             onChange={(event) => setUsername(event.target.value)}
           />
           <button
             type="submit"
-            className="ml-auto bg-blue-950 dark:bg-blue-600 text-white dark:text-gray-900 p-2 cursor-pointer rounded-lg font-bold"
+            className="ml-auto max-xs:text-sm bg-blue-950 dark:bg-blue-600 text-white dark:text-gray-900 p-2 cursor-pointer rounded-lg font-bold"
           >
             Search
           </button>

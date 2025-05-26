@@ -1,8 +1,12 @@
 @import "tailwindcss";
-:root {
-  --primary-color: #1d4ed8; /* Example primary color */
-  --secondary-color: #f59e0b; /* Example secondary color */
-  --background-color: #f3f4f6; /* Example background color */
-  --text-color: #111827; /* Example text color */
-}
+
 @custom-variant dark (&:where(.dark, .dark *));
+
+body {
+  @apply m-0 p-0;
+}
+
+@theme {
+  --breakpoint-xs: 390px;
+  --breakpoint-Xxs: 319px;
+}
