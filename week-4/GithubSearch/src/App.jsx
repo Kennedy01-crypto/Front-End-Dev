@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import ProfileCard from "./ProfileCard";
+import Footer from "./Footer";
 import { Moon, Search, Sun } from "lucide-react";
 
 function App() {
@@ -74,11 +75,11 @@ function App() {
     <div
       className={`${
         theme === "dark" ? "dark" : ""
-      } min-h-screen min-w-screen  bg-gray-300 dark:bg-gray-800/100`}
+      } min-h-screen min-w-screen flex flex-col bg-gray-300 dark:bg-gray-800/100`}
     >
       <div
         className="
-         max-w-2xl  mx-auto mb-5  px-4 sm:px-6 lg:px-8 "
+         max-w-2xl flex-1 mx-auto mb-5  px-4 sm:px-6 lg:px-8 "
       >
         <div className="flex flex-row justify-between p-3 text-xl sm:text-2xl text-blue-950 dark:text-blue-400">
           <h1 className="font-bold ">devfinder Clone</h1>
@@ -122,11 +123,11 @@ function App() {
         {/* Github Profile Card */}
 
         {isloading ? (
-          <div className="flex justify-center items-center h-screen">
+          <div className="flex justify-center items-center ">
             <h1 className="text-emerald-600 text-2xl font-bold">Loading...</h1>
           </div>
         ) : error ? (
-          <div className="flex justify-center items-center h-screen">
+          <div className="flex justify-center items-center">
             <h1 className="text-2xl text-red-600 font-bold">{error}</h1>
           </div>
         ) : (
@@ -145,6 +146,7 @@ function App() {
         )}
       </div>
       {/* Footer */}
+      <Footer />
     </div>
   );
 }
