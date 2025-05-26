@@ -14,7 +14,7 @@ const ProfileCard = ({
   joinDate,
 }) => {
   return (
-    <div className="flex flex-col md:flex-row bg-gray-100 dark:bg-gray-900 mt-4 mx-2 mb-9 sm:mx-1 p-3 rounded-lg shadow-lg gap-3 ">
+    <div className="flex flex-col md:flex-row bg-gray-100 dark:bg-gray-900 my-4 mx-2 sm:mx-1 p-3 rounded-lg shadow-lg gap-3 ">
       <img
         src={
           avatar ||
