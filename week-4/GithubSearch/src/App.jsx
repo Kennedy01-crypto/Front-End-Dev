@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import ProfileCard from "./ProfileCard";
-import { Moon, Search } from "lucide-react";
+import Footer from "./Footer";
+import { Moon, Search, Sun } from "lucide-react";
 
 function App() {
   const [username, setUsername] = useState("");
@@ -17,6 +18,7 @@ function App() {
   const [joinDate, setJoinDate] = useState("");
   const [isloading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [theme, setTheme] = useState("light");
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -62,60 +64,89 @@ function App() {
     }
   };
   useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      setTheme(savedTheme);
+    }
     fetchUser("octocat");
   }, []);
 
   return (
-    <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 h-screen">
-      <div className="flex flex-row justify-between p-3 text-xl sm:text-2xl text-blue-950">
-        <h1 className="font-bold ">devfinder Clone</h1>
-        {/* darkmode and lightmode functionality */}
-        <Moon className="cursor-pointer" />
-      </div>
-      <form
-        className="flex flex-row items-center bg-gray-100 mx-2 sm:m-1 p-5 sm:p-3 rounded-lg shadow-lg gap-3"
-        onSubmit={onSubmit}
+    <div
+      className={`${
+        theme === "dark" ? "dark" : ""
+      } min-h-screen min-w-screen flex flex-col bg-gray-300 dark:bg-gray-800/100`}
+    >
+      <div
+        className="
+         max-w-2xl flex-1 mx-auto mb-5  px-4 sm:px-6 lg:px-8 "
       >
-        <Search className="text-blue-600" />
-        <input
-          type="text"
-          placeholder="Search Github username..."
-          className="flex-1 text-base outline-none placeholder:text-gray-700"
-          value={username}
-          onChange={(event) => setUsername(event.target.value)}
-        />
-        <button
-          type="submit"
-          className="ml-auto bg-blue-600 text-white p-2 cursor-pointer rounded-lg font-bold"
+        <div className="flex flex-row justify-between p-3 text-xl sm:text-2xl text-blue-950 dark:text-blue-400">
+          <h1 className="font-bold ">devfinder Clone</h1>
+          {/* darkmode and lightmode functionality */}
+          <button
+            className="cursor-pointer"
+            onClick={() => {
+              const currentTheme = localStorage.getItem("theme");
+              if (currentTheme === "dark") {
+                setTheme("light");
+                localStorage.setItem("theme", "light");
+              } else {
+                setTheme("dark");
+                localStorage.setItem("theme", "dark");
+              }
+            }}
+          >
+            {theme === "dark" ? <Sun /> : <Moon />}
+          </button>
+        </div>
+        <form
+          className="flex flex-row items-center bg-gray-100 dark:bg-gray-900 mx-2 sm:m-1 p-5 sm:p-3 rounded-lg shadow-lg gap-3"
+          onSubmit={onSubmit}
         >
-          Search
-        </button>
-      </form>
+          <Search className="text-blue-950 dark:text-blue-400" />
+          <input
+            type="text"
+            placeholder="Search Github username..."
+            className="flex-1 text-base outline-none placeholder:text-gray-700 caret-black dark:caret-blue-700 text-black dark:text-white dark:placeholder:text-gray-300 bg-transparent"
+            value={username}
+            onChange={(event) => setUsername(event.target.value)}
+          />
+          <button
+            type="submit"
+            className="ml-auto bg-blue-950 dark:bg-blue-600 text-white dark:text-gray-900 p-2 cursor-pointer rounded-lg font-bold"
+          >
+            Search
+          </button>
+        </form>
 
-      {/* Github Profile Card */}
+        {/* Github Profile Card */}
 
-      {isloading ? (
-        <div className="flex justify-center items-center h-screen">
-          <h1 className="text-emerald-600 text-2xl font-bold">Loading...</h1>
-        </div>
-      ) : error ? (
-        <div className="flex justify-center items-center h-screen">
-          <h1 className="text-2xl text-red-600 font-bold">{error}</h1>
-        </div>
-      ) : (
-        <ProfileCard
-          user={user}
-          devusername={devusername}
-          avatar={avatar}
-          followers={followers}
-          following={following}
-          publicRepos={publicRepos}
-          bio={bio}
-          location={location}
-          url={url}
-          joinDate={joinDate}
-        />
-      )}
+        {isloading ? (
+          <div className="flex justify-center items-center ">
+            <h1 className="text-emerald-600 text-2xl font-bold">Loading...</h1>
+          </div>
+        ) : error ? (
+          <div className="flex justify-center items-center">
+            <h1 className="text-2xl text-red-600 font-bold">{error}</h1>
+          </div>
+        ) : (
+          <ProfileCard
+            user={user}
+            devusername={devusername}
+            avatar={avatar}
+            followers={followers}
+            following={following}
+            publicRepos={publicRepos}
+            bio={bio}
+            location={location}
+            url={url}
+            joinDate={joinDate}
+          />
+        )}
+      </div>
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
