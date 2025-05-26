@@ -1,5 +1,8 @@
 @import "tailwindcss";
 :root {
-  @apply min-h-screen flex justify-center items-center h-screen;
+  --primary-color: #1d4ed8; /* Example primary color */
+  --secondary-color: #f59e0b; /* Example secondary color */
+  --background-color: #f3f4f6; /* Example background color */
+  --text-color: #111827; /* Example text color */
 }
 @custom-variant dark (&:where(.dark, .dark *));
