@@ -1,0 +1,146 @@
+[
+  {
+    "id": 9,
+    "category": "General Knowledge",
+    "image": "https://kenyacurrent.com/wp-content/uploads/2025/02/general-knowledge.jpg",
+    "description": "Test your knowledge of a wide range of topics."
+  },
+  {
+    "id": 10,
+    "category": "Books",
+    "image": "https://images.squarespace-cdn.com/content/v1/5876279bbebafb82a7c81c00/f4e17d6a-81db-4a04-9bda-63c86c517778/IMG_3105.jpg",
+    "description": "Dive into the world of literature and authors."
+  },
+  {
+    "id": 11,
+    "category": "Film",
+    "image": "https://ca-times.brightspotcdn.com/dims4/default/c44b9af/2147483647/strip/true/crop/4000x2666+0+62/resize/2000x1333!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2Fad%2F44%2Fe45caf0b4d03be9be76cdbfa988c%2Ftaxbreak-1.jpg",
+    "description": "Explore the magic of the silver screen."
+  },
+  {
+    "id": 12,
+    "category": "Music",
+    "image": "https://sugomusic.com/wp-content/uploads/freshizer/6da5399b78db3068f42221aca9eb1f94_royalty-free-music-906x515-1-906-c-90.png",
+    "description": "Tune into questions about musical genres, artists, and songs."
+  },
+  {
+    "id": 13,
+    "category": "Musicals & Theatres",
+    "image": "https://www.rider.edu/sites/default/files/styles/hero_bg__homepage/public/2020-11/Heathers.JPG?h=3387d114&itok=7YdtobEN",
+    "description": "Step onto the stage with questions about plays and musicals."
+  },
+  {
+    "id": 14,
+    "category": "Television",
+    "image": "https://img.global.news.samsung.com/global/wp-content/uploads/2015/07/Main_Thumb_0708.jpg",
+    "description": "From sitcoms to dramas, how well do you know TV?"
+  },
+  {
+    "id": 15,
+    "category": "Video Games",
+    "image": "https://www.technewsworld.com/wp-content/uploads/sites/3/2022/10/kid-video-game-player.jpg",
+    "description": "Power up with questions about gaming history and titles."
+  },
+  {
+    "id": 16,
+    "category": "Board Games",
+    "image": "https://cdn.apartmenttherapy.info/image/upload/f_jpg,q_auto:eco,c_fill,g_auto,w_1500,ar_4:3/stock%2Fcustom%20stock%2F2022-11-custom-stock%2Fgames-0228-edit",
+    "description": "Roll the dice and test your board game expertise."
+  },
+  {
+    "id": 17,
+    "category": "Science & Nature",
+    "image": "https://npr.brightspotcdn.com/9d/34/c5f58da7408b94adaa655bfc76c4/science.jpg",
+    "description": "Explore the wonders of the natural world and scientific principles."
+  },
+  {
+    "id": 18,
+    "category": "Computers",
+    "image": "https://www.adorama.com/alc/wp-content/uploads/2024/08/matthew-osborn-nrAyYziRzn8-unsplash.jpg",
+    "description": "Boot up for questions about hardware, software, and programming."
+  },
+  {
+    "id": 19,
+    "category": "Mathematics",
+    "image": "https://www.clickvieweducation.com/_next/image?url=https%3A%2F%2Fcms.clickvieweducation.com%2Fwp-content%2Fuploads%2F2025%2F03%2FInternational-Day-of-Mathematics-Activities.png&w=3840&q=100",
+    "description": "Calculate your knowledge of numbers and equations."
+  },
+  {
+    "id": 20,
+    "category": "Mythology",
+    "image": "https://res.cloudinary.com/aenetworks/image/upload/c_fill,ar_2,w_3840,h_1920,g_auto/dpr_auto/f_auto/q_auto:eco/v1/Greek-mythology-gettyImages-1220052224?_a=BAVAZGDX0",
+    "description": "Unravel tales of gods, goddesses, and legendary creatures."
+  },
+  {
+    "id": 21,
+    "category": "Sports",
+    "image": "https://static.skyassets.com/contentstack/assets/blt143e20b03d72047e/bltd84880be9a73cbf7/66857ca26aa9446f4e1cb6bc/Magenta_Page_Chile_1920x1080_1.png",
+    "description": "Score big with questions about various athletic endeavors."
+  },
+  {
+    "id": 22,
+    "category": "Geography",
+    "image": "https://therealschool.in/blog/wp-content/uploads/2021/08/physical-geography-for-kids-definition.jpeg",
+    "description": "Test your knowledge of the world."
+  },
+  {
+    "id": 23,
+    "category": "History",
+    "image": "https://i.natgeofe.com/k/109a4e08-5ebc-48a5-99ab-3fbfc1bbd611/Giza_Egypt_KIDS_0123_16x9.jpg",
+    "description": "Journey through time with questions about past events and figures."
+  },
+  {
+    "id": 24,
+    "category": "Politics",
+    "image": "https://snworksceo.imgix.net/drt/7806dcaa-6123-4b0d-8f4b-e6749693bbb6.sized-1000x1000.png?w=1000&dpr=2",
+    "description": "Debate your way through questions on governments and global affairs."
+  },
+  {
+    "id": 25,
+    "category": "Art",
+    "image": "https://i.ytimg.com/vi/08s7PghDxNQ/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCZftjE8HT9bEqq4MDCA26He__O8A",
+    "description": "Appreciate the beauty of art history and movements."
+  },
+  {
+    "id": 26,
+    "category": "Celebrities",
+    "image": "https://cms.21ninety.com/wp-content/uploads/2024/11/Cardi-B-Announces-Hefty-Donation-To-Former-Public-School-edited-scaled.jpg",
+    "description": "Discover facts about famous personalities from various fields."
+  },
+  {
+    "id": 27,
+    "category": "Animals",
+    "image": "https://cdn.britannica.com/94/494-050-A674AD3A/Fallow-deer-dama-dama.jpg",
+    "description": "Explore the animal kingdom, from pets to wildlife."
+  },
+  {
+    "id": 28,
+    "category": "Vehicles",
+    "image": "https://www.stablevehiclecontracts.co.uk/uploads/are-modern-vehicles-getting-a-bit-too-heavy-cover.jpg",
+    "description": "Get in gear for questions about cars, planes, and more."
+  },
+  {
+    "id": 29,
+    "category": "Comics",
+    "image": "https://cdn.koffietafelboeken.nl/wp-content/uploads/marvel-comics-library-avengers-vol-1-1963-1965-2.jpg",
+    "description": "Unleash your inner superhero with comic book trivia."
+  },
+  {
+    "id": 30,
+    "category": "Gadgets",
+    "image": "https://media.thegaze.media/thegaze-october-prod/media/24-Winner-Year/June-24/06-06-24/hi-tech-06-24/Hi-tech-human-06-06.jpg",
+    "description": "Stay current with questions about the latest tech and inventions."
+  },
+  {
+    "id": 31,
+    "category": "Japanese Anime",
+    "image": "https://blog.sakura.co/wp-content/uploads/2024/12/samurai-anime-thumbnail-samurai-champloo.webp",
+    "description": "Immerse yourself in the vibrant world of Japanese animation."
+  },
+  {
+    "id": 32,
+    "category": "Cartoon and animations",
+    "image": "https://static1.moviewebimages.com/wordpress/wp-content/uploads/2022/04/spongebob-squarepants.jpeg",
+    "description": "Relive your childhood with questions about classic and modern cartoons."
+  }
+]
