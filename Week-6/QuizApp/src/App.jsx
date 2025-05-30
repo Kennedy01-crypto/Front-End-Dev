@@ -11,14 +11,14 @@ function App() {
   return (
     <div className="min-h-screen pb-16 bg-white">
       <nav
-        className="fixed bottom-0 left-0 w-full flex flex-row justify-around bg-gray-600 text-black z-50 md:static md:justify-end md:gap-4 md:px-5
+        className="fixed bottom-0 left-0 w-full  font-semibold flex flex-row justify-around bg-gray-200 text-black z-50 md:static md:justify-end md:gap-4 md:px-5
       "
       >
         <NavLink
           to="/"
           end
           className={({ isActive }) =>
-            isActive ? "text-blue-600 font-bold py-4" : "text-black py-4"
+            isActive ? "text-blue-700 font-bold py-4" : "text-black py-4"
           }
         >
           Home
@@ -26,7 +26,7 @@ function App() {
         <NavLink
           to="/About"
           className={({ isActive }) =>
-            isActive ? "text-blue-600 font-bold py-4" : "text-black py-4"
+            isActive ? "text-blue-700 font-bold py-4" : "text-black py-4"
           }
         >
           About
@@ -34,7 +34,7 @@ function App() {
         <NavLink
           to="/QuizCategory"
           className={({ isActive }) =>
-            isActive ? "text-blue-600 font-bold py-4" : "text-black py-4"
+            isActive ? "text-blue-700 font-bold py-4" : "text-black py-4"
           }
         >
           Category
@@ -42,7 +42,7 @@ function App() {
         <NavLink
           to="/Quiz"
           className={({ isActive }) =>
-            isActive ? "text-blue-600 font-bold py-4" : "text-black py-4"
+            isActive ? "text-blue-700 font-bold py-4" : "text-black py-4"
           }
         >
           Quiz
@@ -50,7 +50,7 @@ function App() {
         <NavLink
           to="/Results"
           className={({ isActive }) =>
-            isActive ? "text-blue-600 font-bold py-4" : "text-black py-4"
+            isActive ? "text-blue-700 font-bold py-4" : "text-black py-4"
           }
         >
           Results
@@ -61,6 +61,7 @@ function App() {
         <Route path="/About" element={<About />} />
         <Route path="/QuizCategory" element={<QuizCategory />} />
         <Route path="/Quiz/:categoryId" element={<Quiz />} />
+        <Route path="/Quiz" element={<Quiz />} />
         <Route path="/Results" element={<Results />} />
       </Routes>
     </div>
