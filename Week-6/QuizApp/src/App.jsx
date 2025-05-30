@@ -32,6 +32,14 @@ function App() {
           About
         </NavLink>
         <NavLink
+          to="/QuizCategory"
+          className={({ isActive }) =>
+            isActive ? "text-blue-600 font-bold py-4" : "text-black py-4"
+          }
+        >
+          Category
+        </NavLink>
+        <NavLink
           to="/Quiz"
           className={({ isActive }) =>
             isActive ? "text-blue-600 font-bold py-4" : "text-black py-4"
@@ -52,7 +60,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/About" element={<About />} />
         <Route path="/QuizCategory" element={<QuizCategory />} />
-        <Route path="/Quiz" element={<Quiz />} />
+        <Route path="/Quiz/:categoryId" element={<Quiz />} />
         <Route path="/Results" element={<Results />} />
       </Routes>
     </div>

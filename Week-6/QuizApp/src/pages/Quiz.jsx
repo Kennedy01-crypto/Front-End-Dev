@@ -4,12 +4,14 @@ import bigben from "../assets/bigben.jpg";
 import brandenburg from "../assets/brandenburg.jpg";
 import colosseum from "../assets/colosseum.jpg";
 import { QuizContext } from "../context/QuizContext";
-import { useNavigate } from "react-router-dom"; // Uncomment if you want to navigate
+import { useNavigate, useParams } from "react-router-dom"; // Uncomment if you want to navigate
+import categories from "../assets/categories.json";
 
 export const Quiz = () => {
   const [quizData, setQuizData] = useState([]);
   const [current, setCurrent] = useState(0);
   const [selected, setSelected] = useState(null);
+  const { categoryId } = useParams();
   const [answers, setAnswers] = useState([]);
   const {
     setScore,
@@ -17,13 +19,17 @@ export const Quiz = () => {
     setAnswers: setContextAnswers,
   } = useContext(QuizContext);
   const navigate = useNavigate(); // Uncomment if you want to navigate
+  const categoryObj = categories.find(
+    (cat) => String(cat.id) === String(categoryId)
+  );
 
   const FetchQuiz = async () => {
     const response = await fetch(
-      "https://opentdb.com/api.php?amount=10&category=9&type=multiple"
+      `https://opentdb.com/api.php?amount=10&category=${categoryId}&type=multiple`
     );
     const data = await response.json();
     setQuizData(data.results);
+    console.log(data.results);
   };
 
   useEffect(() => {
@@ -90,7 +96,9 @@ export const Quiz = () => {
     <div className="max-w-md mx-auto px-4 py-6">
       <div className="flex items-center mb-4">
         <button className="text-2xl mr-2">&times;</button>
-        <h2 className="text-lg font-semibold flex-1 text-center">Quiz</h2>
+        <h2 className="text-lg font-semibold flex-1 text-center">
+          {categoryObj ? `${categoryObj.category} Quiz` : "Quiz"}
+        </h2>
       </div>
       {total > 0 && (
         <>
