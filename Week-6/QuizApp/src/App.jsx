@@ -5,6 +5,7 @@ import { Quiz } from "./pages/Quiz";
 import { About } from "./pages/About";
 import "./App.css";
 import { Results } from "./pages/Results";
+import { QuizCategory } from "./pages/QuizCategory";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
       "
       >
         <NavLink
-          to="/Home"
+          to="/"
           end
           className={({ isActive }) =>
             isActive ? "text-blue-600 font-bold py-4" : "text-black py-4"
@@ -48,8 +49,9 @@ function App() {
         </NavLink>
       </nav>
       <Routes>
-        <Route path="/Home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/About" element={<About />} />
+        <Route path="/QuizCategory" element={<QuizCategory />} />
         <Route path="/Quiz" element={<Quiz />} />
         <Route path="/Results" element={<Results />} />
       </Routes>
