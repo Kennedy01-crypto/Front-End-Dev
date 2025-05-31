@@ -78,11 +78,17 @@ export const Quiz = () => {
 
     useEffect(() => {
       FetchQuiz();
-    }, []);
+    }, [categoryId]);
 
     useEffect(() => {
       setSelected(answers[current] ?? null);
     }, [current, answers]);
+
+    useEffect(() => {
+      setCurrent(0);
+      setSelected(null);
+      setAnswers([]);
+    }, [categoryId]);
 
     const total = quizData.length;
 
@@ -154,9 +160,11 @@ export const Quiz = () => {
                 style={{ width: `${((current + 1) / total) * 100}%` }}
               ></div>
             </div>
-            <h3 className="text-xl font-bold mb-4">
-              {currentQuestion.question}
-            </h3>
+            {currentQuestion && (
+              <h3 className="text-xl font-bold mb-4">
+                {currentQuestion.question}
+              </h3>
+            )}
             <div className="flex flex-col gap-3 mb-6">
               {choices.map((choice, idx) => (
                 <button
