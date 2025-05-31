@@ -8,7 +8,9 @@ export const Quiz = () => {
   const [shuffledChoices, setShuffledChoices] = useState([]);
   const [current, setCurrent] = useState(0);
   const [selected, setSelected] = useState(null);
+  const [error, setError] = useState(null);
   const { categoryId } = useParams();
+  const [loading, setLoading] = useState(true);
   const [answers, setAnswers] = useState([]);
   const {
     setScore,
@@ -40,32 +42,53 @@ export const Quiz = () => {
     );
   } else {
     const FetchQuiz = async () => {
-      const response = await fetch(
-        `https://opentdb.com/api.php?amount=10&category=${categoryId}&type=multiple`
-      );
-      const data = await response.json();
-      setQuizData(data.results);
+      setLoading(true);
+      try {
+        const response = await fetch(
+          `https://opentdb.com/api.php?amount=10&category=${categoryId}&type=multiple`
+        );
+        if (!response.ok) {
+          throw new Error("Failed to fetch quiz data.");
+        }
+        const data = await response.json();
+        setQuizData(data.results);
 
-      const allShuffled = data.results.map((question) => {
-        const choices = [
-          ...question.incorrect_answers,
-          question.correct_answer,
-        ].map((ans) => ({
-          text: ans,
-          isCorrect: ans === question.correct_answer,
-        }));
-        return shuffle(choices);
-      });
-      setShuffledChoices(allShuffled);
+        const allShuffled = data.results.map((question) => {
+          const choices = [
+            ...question.incorrect_answers,
+            question.correct_answer,
+          ].map((ans) => ({
+            text: ans,
+            isCorrect: ans === question.correct_answer,
+          }));
+          return shuffle(choices);
+        });
+        setShuffledChoices(allShuffled);
+      } catch (err) {
+        console.error("Error fetching quiz data:", err);
+        setError(err.message);
+        setQuizData([]);
+        setShuffledChoices([]);
+        // Optionally, set an error state and display a message to the user
+      } finally {
+        console.log("This part was processed");
+        setLoading(false);
+      }
     };
 
     useEffect(() => {
       FetchQuiz();
-    }, []);
+    }, [categoryId]);
 
     useEffect(() => {
       setSelected(answers[current] ?? null);
     }, [current, answers]);
+
+    useEffect(() => {
+      setCurrent(0);
+      setSelected(null);
+      setAnswers([]);
+    }, [categoryId]);
 
     const total = quizData.length;
 
@@ -118,7 +141,15 @@ export const Quiz = () => {
             {categoryObj ? `${categoryObj.category} Quiz` : "Quiz"}
           </h2>
         </div>
-        {total > 0 && (
+        {error && (
+          <div className="w-full mb-4 p-3 bg-red-100 text-red-700 rounded text-center">
+            {error}
+          </div>
+        )}
+        {loading && !error && (
+          <div className="text-center text-gray-500">Loading quiz ... </div>
+        )}
+        {!loading && !error && total > 0 && (
           <>
             <div className="text-sm text-gray-600 mb-2">
               Question {current + 1} of {total}
@@ -129,9 +160,11 @@ export const Quiz = () => {
                 style={{ width: `${((current + 1) / total) * 100}%` }}
               ></div>
             </div>
-            <h3 className="text-xl font-bold mb-4">
-              {currentQuestion.question}
-            </h3>
+            {currentQuestion && (
+              <h3 className="text-xl font-bold mb-4">
+                {currentQuestion.question}
+              </h3>
+            )}
             <div className="flex flex-col gap-3 mb-6">
               {choices.map((choice, idx) => (
                 <button
@@ -174,9 +207,6 @@ export const Quiz = () => {
               </button>
             </div>
           </>
-        )}
-        {total === 0 && (
-          <div className="text-center text-gray-500">Loading quiz ... </div>
         )}
       </div>
     );
