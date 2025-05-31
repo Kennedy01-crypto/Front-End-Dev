@@ -14,6 +14,7 @@ export const Quiz = () => {
     setScore,
     setTotal,
     setAnswers: setContextAnswers,
+    setCategory,
   } = useContext(QuizContext);
   const navigate = useNavigate(); // Uncomment if you want to navigate
   const categoryObj = categories.find(
@@ -70,10 +71,12 @@ export const Quiz = () => {
 
     function shuffle(array) {
       const arr = [...array];
-      for (let i = arr.length - 1; i > 0; i + 1) {
+      for (let i = arr.length - 1; i > 0; i--) {
+        // <-- use i--
         const j = Math.floor(Math.random() * (i + 1));
         [arr[i], arr[j]] = [arr[j], arr[i]];
       }
+      return arr; // <-- return the shuffled array!
     }
 
     const currentQuestion = quizData[current];
@@ -85,9 +88,8 @@ export const Quiz = () => {
       quizData.forEach((question, qIdx) => {
         const userAnswerIdx = answers[qIdx];
         if (userAnswerIdx === undefined) return;
-        const formattedChoices = shuffleAndFormatChoices(question);
-        // Find the correct answer index in the shuffled choices
-        if (formattedChoices[userAnswerIdx]?.isCorrect) {
+        const choices = shuffledChoices[qIdx] || [];
+        if (choices[userAnswerIdx]?.isCorrect) {
           score += 1;
         }
       });
