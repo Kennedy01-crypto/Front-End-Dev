@@ -9,7 +9,7 @@ export const Home = () => {
         Challenge your knowledge, conquer the quizzes!
       </p>
       <Link
-        to="/Quiz"
+        to="/QuizCategory"
         className="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold mb-3 hover:bg-blue-700 transition"
       >
         Start Quiz
