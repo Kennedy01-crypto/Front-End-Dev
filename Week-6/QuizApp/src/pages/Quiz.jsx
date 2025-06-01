@@ -134,10 +134,10 @@ export const Quiz = () => {
     };
 
     return (
-      <div className="max-w-md mx-auto px-4 py-6">
+      <div className="max-w-md md:max-w-full mx-auto md:mx-10 px-4 py-6">
         <div className="flex items-center mb-4">
           <button className="text-2xl mr-2">&times;</button>
-          <h2 className="text-lg font-semibold flex-1 text-center">
+          <h2 className="text-lg md:text-2xl lg:text-4xl font-bold flex-1 text-center">
             {categoryObj ? `${categoryObj.category} Quiz` : "Quiz"}
           </h2>
         </div>
@@ -150,22 +150,22 @@ export const Quiz = () => {
           <div className="text-center text-gray-500">Loading quiz ... </div>
         )}
         {!loading && !error && total > 0 && (
-          <>
-            <div className="text-sm text-gray-600 mb-2">
+          <main className="flex flex-col md:items-center">
+            <div className="text-sm md:text-xl lg:text-2xl  text-gray-600 mb-2">
               Question {current + 1} of {total}
             </div>
-            <div className="w-full bg-gray-200 rounded-full h-1.5 mb-4">
+            <div className=" w-full md:w-4xl bg-gray-200 rounded-full h-1.5 mb-4">
               <div
                 className="bg-blue-600 h-1.5 rounded-full"
                 style={{ width: `${((current + 1) / total) * 100}%` }}
               ></div>
             </div>
             {currentQuestion && (
-              <h3 className="text-xl font-bold mb-4">
+              <h3 className="text-xl md:text-1xl lg:text-3xl font-bold mb-4">
                 {currentQuestion.question}
               </h3>
             )}
-            <div className="flex flex-col gap-3 mb-6">
+            <div className="flex flex-col w-1/2 gap-3 mb-6">
               {choices.map((choice, idx) => (
                 <button
                   key={idx}
@@ -179,12 +179,14 @@ export const Quiz = () => {
                   }}
                   className={`flex items-center bg-gray-100 rounded-xl p-2 transition ${
                     selected === idx
-                      ? "border-2 border-blue-600 bg-blue-50"
+                      ? "border-2 border-blue-600 bg-blue-500"
                       : "hover:bg-blue-100"
                   }`}
                 >
-                  <div className="flex-1">
-                    <div className="font-semibold">{choice.text}</div>
+                  <div className="flex-1 ">
+                    <div className="font-semibold md:text-xl lg:text-2xl">
+                      {choice.text}
+                    </div>
                   </div>
                 </button>
               ))}
@@ -206,7 +208,7 @@ export const Quiz = () => {
                 {current === total - 1 ? "Finish Quiz" : "Next Question"}
               </button>
             </div>
-          </>
+          </main>
         )}
       </div>
     );
