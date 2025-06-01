@@ -4,22 +4,24 @@ import categories from "../assets/categories.json";
 
 export const QuizCategory = () => {
   return (
-    <div className="max-w-md mx-auto px-4 py-8">
+    <main className="max-w-md md:max-w-full mx-auto px-4 py-8">
       <h2 className="text-2xl font-bold mb-6 text-center">Available Quizzes</h2>
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {categories.map((quiz) => (
           <div
             key={quiz.id}
-            className="flex items-center bg-gray-100 rounded-xl shadow p-4"
+            className="flex md:flex-col items-center md:items-start bg-gray-100 hover:bg-gray-200 hover:cursor-pointer rounded-xl shadow-md p-4 "
           >
-            <img
-              src={quiz.image}
-              alt={quiz.category}
-              className="w-20 h-16 object-cover rounded-lg mr-4"
-            />
+            <div className="md:w-full md:h-40 overflow-hidden relative">
+              <img
+                src={quiz.image}
+                alt={quiz.category}
+                className="w-20 h-16 md:w-full md:h-full object-cover rounded-lg mr-4"
+              />
+            </div>
             <div className="flex-1">
               <div className="font-semibold text-lg">{quiz.category}</div>
-              <div className="text-gray-600 text-sm mb-2">
+              <div className="text-gray-600 text-sm md:text-xl mb-2">
                 {quiz.description}
               </div>
               <Link
@@ -32,6 +34,6 @@ export const QuizCategory = () => {
           </div>
         ))}
       </div>
-    </div>
+    </main>
   );
 };
