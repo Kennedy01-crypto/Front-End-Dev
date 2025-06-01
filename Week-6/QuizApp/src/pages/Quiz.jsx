@@ -165,7 +165,7 @@ export const Quiz = () => {
                 {currentQuestion.question}
               </h3>
             )}
-            <div className="flex flex-col w-1/2 gap-3 mb-6">
+            <div className="flex flex-col md:w-1/2 gap-3 mb-6 ">
               {choices.map((choice, idx) => (
                 <button
                   key={idx}
@@ -177,7 +177,7 @@ export const Quiz = () => {
                       return updated;
                     });
                   }}
-                  className={`flex items-center bg-gray-100 rounded-xl p-2 transition ${
+                  className={`flex items-center cursor-pointer bg-gray-100 rounded-xl p-2 transition ${
                     selected === idx
                       ? "border-2 border-blue-600 bg-blue-500"
                       : "hover:bg-blue-100"
@@ -191,9 +191,9 @@ export const Quiz = () => {
                 </button>
               ))}
             </div>
-            <div className="flex gap-2">
+            <div className="flex gap-2 md:w-1/2 md:text-xl lg:text-2xl ">
               <button
-                className="bg-gray-100 text-gray-800 px-4 py-2 rounded-lg font-medium flex-1 hover:bg-gray-200 transition"
+                className="bg-gray-100  text-gray-800 cursor-pointer  px-4 py-2 rounded-lg font-medium flex-1 hover:bg-gray-200 transition"
                 onClick={() => setCurrent((prev) => Math.max(prev - 1, 0))}
                 disabled={current === 0}
               >
@@ -201,7 +201,7 @@ export const Quiz = () => {
               </button>
               <button
                 id="next-finish"
-                className="bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold flex-1 hover:bg-blue-700 transition"
+                className="bg-blue-600 text-white px-4 py-2 cursor-pointer rounded-lg font-semibold flex-1 hover:bg-blue-700 transition"
                 onClick={handleNextOrFinish}
                 disabled={selected === null}
               >
