@@ -50,7 +50,7 @@ export const About = () => (
       className="rounded-xl shadow-md w-full max-w-xs mb-8 bg-gray-100 p-4"
     />
     <Link
-      to="/Home"
+      to="/"
       className="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition w-full text-center"
     >
       Back to Home
