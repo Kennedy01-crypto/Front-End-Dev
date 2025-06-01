@@ -6,8 +6,22 @@ export const Results = () => {
   // Example values; replace with your actual quiz state/props as needed
   const { score, total, answers, category } = useContext(QuizContext);
 
+  if (!score) {
+    return (
+      <main className="max-w-md mx-auto px-4 py-8 flex flex-col items-center">
+        <h1 className="text-2xl font-bold mb-2 text-center">No Score.</h1>
+        <Link
+          to="/QuizCategory"
+          className="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition"
+        >
+          Go to Quiz Categories
+        </Link>
+      </main>
+    );
+  }
+
   return (
-    <div className="max-w-md mx-auto px-4 py-8 flex flex-col items-center">
+    <main className="max-w-md mx-auto px-4 py-8 flex flex-col items-center">
       <div className="flex items-center w-full mb-6">
         <button className="text-2xl mr-2">&times;</button>
         <h2 className="text-lg font-semibold flex-1 text-center">
@@ -33,6 +47,6 @@ export const Results = () => {
       <Link to="/" className="text-black font-semibold mt-2 hover:underline">
         Back to Home
       </Link>
-    </div>
+    </main>
   );
 };
