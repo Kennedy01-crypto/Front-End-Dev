@@ -1,0 +1,32 @@
+[
+  {
+    "id": "item1",
+    "name": "Wireless Mouse",
+    "unitPrice": 25.99,
+    "image": "https://m.media-amazon.com/images/I/61nde-uGu1L._AC_SL1200_.jpg"
+  },
+  {
+    "id": "item2",
+    "name": "Bluetooth Keyboard",
+    "unitPrice": 45.5,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEXMzH7CYEAOMaAjEFb81Zw5rNhCEXd8Tm0Q&s"
+  },
+  {
+    "id": "item3",
+    "name": "USB-C Hub",
+    "unitPrice": 34.75,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfR6igiIxjhXcrtuxpY63qddvgWc5rbpfKug&s"
+  },
+  {
+    "id": "item4",
+    "name": "27-inch Monitor",
+    "unitPrice": 189.99,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTf8zPPOc6VbWeX-mLIdda3zdA68XHSM2MSVQ&s"
+  },
+  {
+    "id": "item5",
+    "name": "External Hard Drive",
+    "unitPrice": 79.99,
+    "image": "https://arcticcomputershop.com/wp-content/uploads/2022/07/4.jpg"
+  }
+]
