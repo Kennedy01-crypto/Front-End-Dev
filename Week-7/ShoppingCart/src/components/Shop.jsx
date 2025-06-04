@@ -1,11 +1,17 @@
 import React from "react";
-import items from "./items.json";
+import { useItems } from "../context/ItemsContext";
 
 export const Shop = () => {
+  const { items, addToCart } = useItems();
+
+  const handleAddtoCart = (id) => {
+    addToCart(id);
+  };
+
   return (
-    <main className="bg-gray-200 max-h-screen w-full flex flex-col items-center">
+    <main className="bg-gray-200 min-h-screen w-full flex flex-col items-center">
       <h1 className="font-bold text-3xl my-2">Shop Items</h1>
-      <ul className="grid grid-cols-3 gap-3">
+      <ul className="grid sm:grid-cols-2 md:rid-cols-3 gap-3">
         {items.map((item) => (
           <li
             className="bg-white p-3 m-4 border rounded-lg hover:shadow-lg h-70 w-70 border-gray-100"
@@ -24,7 +30,10 @@ export const Shop = () => {
               <p className="text-lg font-semibold">
                 Price: ${item.unitPrice.toFixed(2)}
               </p>
-              <button className="p-1 px-3 cursor-pointer bg-black hover:bg-blue-600  rounded-md text-white font-semibold">
+              <button
+                className="p-1 px-3 cursor-pointer bg-black hover:bg-blue-600  rounded-md text-white font-semibold"
+                onClick={() => handleAddtoCart(item.id)}
+              >
                 Add to cart
               </button>
             </div>
