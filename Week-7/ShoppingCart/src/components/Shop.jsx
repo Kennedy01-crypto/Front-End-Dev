@@ -3,9 +3,9 @@ import items from "./items.json";
 
 export const Shop = () => {
   return (
-    <main className="bg-gray-200 max-h-screen w-full flex flex-col items-center">
+    <main className="bg-gray-200 min-h-screen w-full flex flex-col items-center">
       <h1 className="font-bold text-3xl my-2">Shop Items</h1>
-      <ul className="grid grid-cols-3 gap-3">
+      <ul className="grid sm:grid-cols-2 md:rid-cols-3 gap-3">
         {items.map((item) => (
           <li
             className="bg-white p-3 m-4 border rounded-lg hover:shadow-lg h-70 w-70 border-gray-100"
