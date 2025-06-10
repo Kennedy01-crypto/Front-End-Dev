@@ -4,27 +4,7 @@
   padding: 2rem;
   text-align: center;
 }
-/* src/App.css or src/index.css */
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #111112df;
-}
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
-/* Add any custom styles for your app here, or use the inline styles from components */
-.App {
-  /* Styles already in App.js */
-  background-color: #607d83;
-}
 .logo {
   height: 6em;
   padding: 1.5em;
