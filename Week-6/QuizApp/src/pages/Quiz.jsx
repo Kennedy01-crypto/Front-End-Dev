@@ -136,11 +136,23 @@ export const Quiz = () => {
 
     return (
       <div className="max-w-md md:max-w-full mx-auto md:mx-10 px-4 py-6">
-        <div className="flex items-center mb-4">
-          <button className="text-2xl mr-2">&times;</button>
-          <h2 className="text-lg md:text-2xl lg:text-4xl font-bold flex-1 text-center">
-            {categoryObj ? `${categoryObj.category} Quiz` : "Quiz"}
-          </h2>
+        <div className="relative flex  items-center mb-4">
+          <button
+            className="text-2xl"
+            onClick={() => {
+              navigate("/QuizCategory");
+            }}
+          >
+            &times;
+          </button>
+          <div className="flex flex-col mx-auto">
+            <h2 className="text-lg md:text-2xl lg:text-4xl font-bold flex-1 text-center">
+              {categoryObj ? `${categoryObj.category} Quiz` : "Quiz"}
+            </h2>
+            <h3 className="text-md md:text-lg lg:text-2xl font-semibold text-center">
+              {categoryObj ? `Level: ${difficulty}` : ""}
+            </h3>
+          </div>
         </div>
         {error && (
           <div className="w-full mb-4 p-3 bg-red-100 text-red-700 rounded text-center">

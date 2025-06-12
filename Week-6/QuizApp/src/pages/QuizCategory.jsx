@@ -12,9 +12,9 @@ export const QuizCategory = () => {
         Available Quizzes
       </h2>
 
-      <div className="mb-6 flex justify-center gap-4">
-        <div>
-          <label htmlFor="difficulty" className="block font-semibold mb-1">
+      <div className="m-4 flex flex-col md:flex-row md:gap-4 items-center justify-center gap-4">
+        <div className="flex md:flex-col ">
+          <label htmlFor="difficulty" className="block font-semibold m-2">
             Select Difficulty
           </label>
           <select
@@ -29,8 +29,8 @@ export const QuizCategory = () => {
           </select>
         </div>
 
-        <div>
-          <label htmlFor="amount" className="block font-semibold mb-1">
+        <div className="flex md:flex-col ">
+          <label htmlFor="amount" className="block font-semibold m-2">
             Number of Questions
           </label>
           <select
