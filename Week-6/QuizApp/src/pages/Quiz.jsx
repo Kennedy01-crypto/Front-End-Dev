@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { QuizContext } from "../context/QuizContext";
-import { useNavigate, useParams, Link } from "react-router-dom"; // Uncomment if you want to navigate
+import { useNavigate, useParams, Link, useLocation } from "react-router-dom"; // Added useLocation
 import categories from "../assets/categories.json";
 
 export const Quiz = () => {
@@ -18,10 +18,16 @@ export const Quiz = () => {
     setAnswers: setContextAnswers,
     setCategory,
   } = useContext(QuizContext);
-  const navigate = useNavigate(); // Uncomment if you want to navigate
+  const navigate = useNavigate();
+  const location = useLocation(); // Added useLocation hook
   const categoryObj = categories.find(
     (cat) => String(cat.id) === String(categoryId)
   );
+
+  // Parse query parameters for difficulty and amount
+  const queryParams = new URLSearchParams(location.search);
+  const difficulty = queryParams.get("difficulty") || "easy";
+  const amount = queryParams.get("amount") || "10";
 
   if (!categoryId || !categoryObj) {
     return (
@@ -45,7 +51,7 @@ export const Quiz = () => {
       setLoading(true);
       try {
         const response = await fetch(
-          `https://opentdb.com/api.php?amount=10&category=${categoryId}&type=multiple`
+          `https://opentdb.com/api.php?amount=${amount}&category=${categoryId}&difficulty=${difficulty}&type=multiple`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch quiz data.");
@@ -69,16 +75,14 @@ export const Quiz = () => {
         setError(err.message);
         setQuizData([]);
         setShuffledChoices([]);
-        // Optionally, set an error state and display a message to the user
       } finally {
-        console.log("This part was processed");
         setLoading(false);
       }
     };
 
     useEffect(() => {
       FetchQuiz();
-    }, [categoryId]);
+    }, [categoryId, difficulty, amount]);
 
     useEffect(() => {
       setSelected(answers[current] ?? null);
@@ -95,17 +99,15 @@ export const Quiz = () => {
     function shuffle(array) {
       const arr = [...array];
       for (let i = arr.length - 1; i > 0; i--) {
-        // <-- use i--
         const j = Math.floor(Math.random() * (i + 1));
         [arr[i], arr[j]] = [arr[j], arr[i]];
       }
-      return arr; // <-- return the shuffled array!
+      return arr;
     }
 
     const currentQuestion = quizData[current];
     const choices = shuffledChoices[current] || [];
 
-    // --- Score Calculation ---
     const calculateScore = () => {
       let score = 0;
       quizData.forEach((question, qIdx) => {
@@ -119,7 +121,6 @@ export const Quiz = () => {
       return score;
     };
 
-    // --- Handle Next/Finish ---
     const handleNextOrFinish = () => {
       if (current === total - 1) {
         const score = calculateScore();
@@ -135,11 +136,23 @@ export const Quiz = () => {
 
     return (
       <div className="max-w-md md:max-w-full mx-auto md:mx-10 px-4 py-6">
-        <div className="flex items-center mb-4">
-          <button className="text-2xl mr-2">&times;</button>
-          <h2 className="text-lg md:text-2xl lg:text-4xl font-bold flex-1 text-center">
-            {categoryObj ? `${categoryObj.category} Quiz` : "Quiz"}
-          </h2>
+        <div className="relative flex  items-center mb-4">
+          <button
+            className="text-2xl"
+            onClick={() => {
+              navigate("/QuizCategory");
+            }}
+          >
+            &times;
+          </button>
+          <div className="flex flex-col mx-auto">
+            <h2 className="text-lg md:text-2xl lg:text-4xl font-bold flex-1 text-center">
+              {categoryObj ? `${categoryObj.category} Quiz` : "Quiz"}
+            </h2>
+            <h3 className="text-md md:text-lg lg:text-2xl font-semibold text-center">
+              {categoryObj ? `Level: ${difficulty}` : ""}
+            </h3>
+          </div>
         </div>
         {error && (
           <div className="w-full mb-4 p-3 bg-red-100 text-red-700 rounded text-center">
