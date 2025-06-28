@@ -1,5 +1,6 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, createContext } from "react";
+
+export const CounterContext = createContext();
 
 export const withCounter = (WrappedComponent) => {
   return function WithCounter(props) {
@@ -14,13 +15,9 @@ export const withCounter = (WrappedComponent) => {
       setcount(0);
     };
     return (
-      <WrappedComponent
-        {...props}
-        count={count}
-        increment={increment}
-        decrement={decrement}
-        reset={reset}
-      />
+      <CounterContext.Provider value={{ count, increment, decrement, reset }}>
+        <WrappedComponent {...props} />
+      </CounterContext.Provider>
     );
   };
 };
