@@ -35,7 +35,8 @@ function App() {
     >
       <div
         className="
-          flex-1 sm:mx-auto  px-4 sm:px-6 lg:px-8  "
+          flex-1 sm:mx-auto  px-4 sm:px-6 lg:px-8  md:max-w-3/4 lg:max-w-2xl xl:max-w-3xl 2xl:max-w-4xl
+          w-full h-full flex flex-col"
       >
         <div className="flex flex-row justify-between items-center w-full max-w-md mx-auto xs:text-lg p-3 px-2 text-xl sm:text-2xl text-blue-950 dark:text-blue-400">
           <h1 className="font-bold ">devfinder Clone</h1>
