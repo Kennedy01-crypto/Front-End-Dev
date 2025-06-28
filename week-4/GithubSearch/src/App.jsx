@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import ProfileCard from "./ProfileCard";
-import Footer from "./Footer";
+import ProfileCard from "./components/ProfileCard";
+import Footer from "./components/Footer";
 import { Moon, Search, Sun } from "lucide-react";
 
 function App() {
