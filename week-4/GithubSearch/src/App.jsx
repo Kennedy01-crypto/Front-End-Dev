@@ -6,23 +6,8 @@ import useGithubUser from "./hooks/useGithubUser";
 import { Moon, Search, Sun } from "lucide-react";
 
 function App() {
-  const {
-    username,
-    setUsername,
-    devusername,
-    user,
-    avatar,
-    location,
-    publicRepos,
-    followers,
-    following,
-    bio,
-    url,
-    joinDate,
-    isloading,
-    error,
-    fetchUser,
-  } = useGithubUser();
+  const { username, setUsername, user, isloading, error, fetchUser } =
+    useGithubUser();
   const [theme, setTheme] = useState("light");
 
   const onSubmit = (e) => {
@@ -102,18 +87,7 @@ function App() {
             <h1 className="text-2xl text-red-600 font-bold">{error}</h1>
           </div>
         ) : (
-          <ProfileCard
-            user={user}
-            devusername={devusername}
-            avatar={avatar}
-            followers={followers}
-            following={following}
-            publicRepos={publicRepos}
-            bio={bio}
-            location={location}
-            url={url}
-            joinDate={joinDate}
-          />
+          <ProfileCard user={user} />
         )}
       </div>
       {/* Footer */}
